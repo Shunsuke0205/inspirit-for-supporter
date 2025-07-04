@@ -4,12 +4,12 @@ export default function Home() {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100 p-4">
       <h1 className="text-5xl font-extrabold text-gray-900 mb-6 text-center leading-tight">
-        高校生の夢を支援する
+        高校生の夢や活動を応援し、
         <br />
         未来を紡ぐプラットフォーム
       </h1>
       <p className="text-lg text-gray-700 mb-10 text-center max-w-2xl">
-        学ぶ意欲のある日本の高校生と、彼らの夢を応援したい市民をつなぎます。
+        学ぶ意欲のある日本の高校生と、彼らの夢や活動を応援したい市民をつなぎます。
         <br />
         小さな一歩が、大きな未来を創り出します。
       </p>
@@ -28,7 +28,7 @@ export default function Home() {
       </div>
 
       <div className="mt-12 text-center text-gray-500 text-sm">
-        <p>&copy; {new Date().getFullYear()} 未来を紡ぐプラットフォーム. All rights reserved.</p>
+        <p>&copy; {new Date().getFullYear()} 一般社団法人インスピリット. All rights reserved.</p>
       </div>
     </div>
   );
