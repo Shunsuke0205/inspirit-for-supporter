@@ -5,17 +5,17 @@ type ScholarshipApplication = {
   id: string;
   createdAt: string;
   userId: string;
-  title: string;
-  item_description: string;
-  item_price: number;
-  requested_amount: number;
-  enthusiasm: number;
-  long_term_goal: string;
-  amazon_wishlist_url: string;
-  status: string;
-  entire_report_period_days: number;
-  report_interval_days: number;
-  last_reported_at: string | null;
+  title: string | null;
+  itemDescription: string | null;
+  itemPrice: number;
+  requestedAmount: number;
+  enthusiasm: string | null;
+  longTermGoal: string | null;
+  amazonWishlistUrl: string | null;
+  status: string | null;
+  entireReportPeriodDays: number;
+  reportIntervalDays: number;
+  lastReportedAt: string | null;
 }
 
 async function fetchApplicationDetails(id: string): Promise<ScholarshipApplication | null> {
@@ -27,8 +27,25 @@ async function fetchApplicationDetails(id: string): Promise<ScholarshipApplicati
   }
   const { data: applicationData, error: applicationError } = await supabase
     .from("scholarship_applications")
-    .select("*")
+    .select(`
+      id,
+      createdAt:created_at,
+      userId:user_id,
+      title,
+      itemDescription:item_description,
+      itemPrice:item_price,
+      requestedAmount:requested_amount,
+      enthusiasm,
+      longTermGoal:long_term_goal,
+      amazonWishlistUrl:amazon_wishlist_url,
+      status,
+      entireReportPeriodDays:entire_report_period_days,
+      reportIntervalDays:report_interval_days,
+      lastReportedAt:last_reported_at
+    `)
     .eq("id", id)
+    .eq("status", "active")
+    .eq("is_deleted", false)
     .single();
 
   if (applicationError || !applicationData) {
@@ -36,7 +53,7 @@ async function fetchApplicationDetails(id: string): Promise<ScholarshipApplicati
     return null;
   }
 
-  return applicationData;
+  return applicationData as ScholarshipApplication;
 }
 
 export default async function Page({
