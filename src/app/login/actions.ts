@@ -58,3 +58,17 @@ export async function logout() {
   revalidatePath('/posts', 'layout');
   redirect('/posts');
 }
+
+export async function isLoggedIn() {
+  const supabase = await createClient();
+
+  const { data, error } = await supabase.auth.getUser();
+
+  if (error || !data?.user) {
+    console.log("Error fetching user in 'isLoggedIn' function:", error);
+    return false;
+  } else {
+    console.log("User is logged in");
+    return true;
+  }
+}
