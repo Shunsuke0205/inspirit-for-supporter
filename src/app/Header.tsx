@@ -33,12 +33,20 @@ const Header = async () => {
           </Link>
         </div>
         :
-        <Link
-          href="/login"
-          className="border border-gray-300 px-3 py-1 bg-orange-100 cursor-pointer rounded-lg hover:bg-orange-200"
-        >
-          ログイン
-        </Link>
+        <div>
+          <Link
+            href="/login"
+            className="border border-gray-300 px-3 py-1 bg-orange-100 cursor-pointer rounded-lg hover:bg-orange-200"
+          >
+            ログイン
+          </Link>
+          <Link
+            href="/signup"
+            className="border border-gray-300 ml-4 px-3 py-1 bg-orange-100 cursor-pointer rounded-lg hover:bg-orange-200"
+          >
+            新規登録
+          </Link>
+        </div>
       }
     </header>
   );
