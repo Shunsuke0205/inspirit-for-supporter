@@ -33,7 +33,7 @@ const ApplicationList = async () => {
   }
   return (
     <div className="mt-8">
-      <h2 className="text-2xl font-bold text-gray-800 mb-6 text-center">支援が必要な高校生たち</h2>
+      <h2 className="text-2xl font-bold text-gray-800 mb-6 text-center">高校生の投稿</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {applications.map((application) => (
           <Link href={`/discover/${application.id}`} key={application.id} className="block">
@@ -85,8 +85,9 @@ const Page = () => {
         <h1 className="text-4xl font-extrabold text-gray-900 mb-4 text-center">
           高校生の夢を応援します！
         </h1>
-        <p className="text-lg text-gray-600 mb-10 text-center max-w-2xl mx-auto">
-          学業に必要な物品の購入や経済的支援を求める高校生の投稿を閲覧できます。彼らの努力を応援し、未来への一歩を支援しましょう。
+        <p className="text-lg text-gray-600 mb-10 max-w-2xl mx-auto">
+          学業に必要な物品の購入や経済的支援を求める高校生の投稿を閲覧できます。<br />
+          彼らの努力を応援し、未来への一歩を応援しませんか。
         </p>
         <ApplicationList />
       </div>
