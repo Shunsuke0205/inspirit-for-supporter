@@ -1,4 +1,5 @@
 import { createClient } from "@/utils/supabase/server";
+import LogoutButton from "./LogoutButton";
 
 export default async function UserProfilePage({
   params,
@@ -17,7 +18,7 @@ export default async function UserProfilePage({
     <div>
       <h1>ユーザーID：{userId}</h1>
       {/* Additional user profile content can be added here */}
-      
+      { userData.user.id === userId ? <LogoutButton /> : null }
     </div>
   );
 };
