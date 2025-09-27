@@ -35,7 +35,13 @@ export async function signup(formData: FormData) {
     password: formData.get('password') as string,
   }
 
-  const { error } = await supabase.auth.signUp(data)
+  const { error } = await supabase.auth.signUp({
+    ...data,
+    options: {
+      emailRedirectTo: 'https://inspirit-for-supporter.vercel.app',
+      data: { role: 'supporter'}
+    }
+  })
 
   if (error) {
     redirect('/error')
