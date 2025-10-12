@@ -7,6 +7,7 @@ type ScholarshipApplication = {
   createdAt: string;
   userId: string;
   title: string | null;
+  itemName: string | null;
   itemDescription: string | null;
   itemPrice: number;
   requestedAmount: number;
@@ -33,6 +34,7 @@ async function fetchApplicationDetails(id: string): Promise<ScholarshipApplicati
       createdAt:created_at,
       userId:user_id,
       title,
+      itemName:item_name,
       itemDescription:item_description,
       itemPrice:item_price,
       requestedAmount:requested_amount,
@@ -135,6 +137,7 @@ export default async function Page({
           {/* 欲しい物品 */}
           <div>
             <h2 className="text-xl font-bold text-gray-800 mb-2">🎓 欲しい物品</h2>
+            <p className="whitespace-pre-wrap">商品名：「{applicationDetails.itemName || "名前なし"}」</p>
             <p className="whitespace-pre-wrap">{applicationDetails.itemDescription || "説明なし"}</p>
           </div>
 
