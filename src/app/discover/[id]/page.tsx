@@ -95,6 +95,14 @@ export default async function Page({
   return (
     <div className="min-h-screen bg-gray-100 py-10 px-4">
       <div className="max-w-4xl mx-auto bg-white rounded-lg shadow-xl p-8">
+        {/* 投稿日時など */}
+        <div className="text-right text-gray-500 text-sm mb-4">
+          <p>投稿日: {new Date(applicationDetails.createdAt).toLocaleDateString('ja-JP')}</p>
+          {applicationDetails.lastReportedAt && (
+            <p>最終報告日: {new Date(applicationDetails.lastReportedAt).toLocaleDateString('ja-JP')}</p>
+          )}
+        </div>
+
         {/* 投稿タイトルと本人確認済みマーク（後で追加） */}
         <div className="flex justify-between items-start mb-6">
           <h1 className="text-3xl font-extrabold text-gray-900 leading-tight">
@@ -196,13 +204,6 @@ export default async function Page({
             </div>
           </div>
 
-          {/* 投稿日時など */}
-          <div className="text-right text-gray-500 text-sm mt-8">
-            <p>投稿日: {new Date(applicationDetails.createdAt).toLocaleDateString('ja-JP')}</p>
-            {applicationDetails.lastReportedAt && (
-              <p>最終報告日: {new Date(applicationDetails.lastReportedAt).toLocaleDateString('ja-JP')}</p>
-            )}
-          </div>
         </div>
 
         {/* 支援ボタンなど (TODO: 後で実装) */}
