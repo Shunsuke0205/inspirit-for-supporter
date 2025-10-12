@@ -152,13 +152,13 @@ export default async function Page({
           {/* 金額情報 */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 bg-gray-50 p-4 rounded-md">
             <div>
-              <p className="text-sm text-gray-600">物品の合計金額</p>
+              <p className="text-sm text-gray-600">物品の金額</p>
               <p className="text-2xl font-bold text-indigo-700">{applicationDetails.itemPrice.toLocaleString()} 円</p>
             </div>
-            <div>
+            {/* <div>
               <p className="text-sm text-gray-600">希望する支援金額</p>
               <p className="text-2xl font-bold text-indigo-700">{applicationDetails.requestedAmount.toLocaleString()} 円</p>
-            </div>
+            </div> */}
           </div>
 
           {/* 活動への意気込み */}
@@ -198,12 +198,11 @@ export default async function Page({
               <p className="text-sm text-gray-600">報告期間</p>
               <p className="text-lg font-bold text-gray-800">{applicationDetails.entireReportPeriodDays}日間</p>
             </div>
-            <div>
+            {/* <div>
               <p className="text-sm text-gray-600">この支援の報告頻度</p>
               <p className="text-lg font-bold text-gray-800">{applicationDetails.reportIntervalDays}日に1回以上</p>
-            </div>
+            </div> */}
           </div>
-
         </div>
 
         {/* 支援ボタンなど (TODO: 後で実装) */}
