@@ -1,5 +1,6 @@
 import { createClient } from "@/utils/supabase/server";
 import Link from "next/link";
+import PurchaseButton from "./PurchaseButton";
 
 
 type ScholarshipApplication = {
@@ -47,7 +48,7 @@ async function fetchApplicationDetails(id: string): Promise<ScholarshipApplicati
       lastReportedAt:last_reported_at
     `)
     .eq("id", id)
-    .eq("status", "active")
+    // .eq("status", "active")
     .eq("is_deleted", false)
     .single();
 
@@ -206,14 +207,23 @@ export default async function Page({
         </div>
 
         {/* 支援ボタンなど (TODO: 後で実装) */}
-        <div className="mt-10 pt-6 border-t border-gray-200">
+        {/* <div className="mt-10 pt-6 border-t border-gray-200">
           <button
             // onClick={() => alert("支援機能はまだ実装されていません。")}
             className="w-full py-3 px-6 bg-green-600 text-white font-semibold rounded-lg shadow-md hover:bg-green-700 transition duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 text-lg"
           >
             この高校生を支援する
           </button>
-        </div>
+        </div> */}
+
+        {/* 支援ボタンなど (Step 2-3: PurchaseButton に置き換え) */}
+        <div className="mt-10 pt-6 border-t border-gray-200">
+          <PurchaseButton
+            applicationId={applicationDetails.id}
+            itemPrice={applicationDetails.itemPrice}
+            currentStatus={applicationDetails.status || 'unknown'}
+          />
+        </div>
       </div>
     </div>
   );
