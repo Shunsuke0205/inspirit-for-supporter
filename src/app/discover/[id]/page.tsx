@@ -217,13 +217,13 @@ export default async function Page({
         </div> */}
 
         {/* 支援ボタンなど (Step 2-3: PurchaseButton に置き換え) */}
-        <div className="mt-10 pt-6 border-t border-gray-200">
-          <PurchaseButton
-            applicationId={applicationDetails.id}
-            itemPrice={applicationDetails.itemPrice}
-            currentStatus={applicationDetails.status || 'unknown'}
-          />
-        </div>
+        <div className="mt-10 pt-6 border-t border-gray-200">
+          <PurchaseButton
+            applicationId={applicationDetails.id}
+            itemPrice={applicationDetails.itemPrice}
+            currentStatus={applicationDetails.status || 'unknown'}
+          />
+        </div>
       </div>
     </div>
   );
