@@ -126,7 +126,7 @@ export default async function Page({
         <div className="mb-6">
           <span className={`px-4 py-1 rounded-full text-sm font-semibold ${getStatusBadgeClass(applicationDetails.status)}`}>
             {applicationDetails.status === 'active' ? '応援受付中' :
-             applicationDetails.status === 'funded' ? '資金調達完了' :
+             applicationDetails.status === 'pending' ? '配達中' :
              applicationDetails.status === 'reporting' ? '活動報告中' :
              applicationDetails.status === 'completed' ? '活動完了' :
              '状態不明'}
