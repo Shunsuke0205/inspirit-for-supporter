@@ -12,7 +12,8 @@ async function FetchData() {
   const { data: applicationsData, error: applicationsError } = await supabase
     .from("scholarship_applications")
     .select("id, title, item_description, requested_amount, status, created_at")
-    .eq("status", "active")
+    // .eq("status", "active")
+    .eq("is_daily_report", false)
     .eq("is_deleted", false)
     .order("created_at", { ascending: false })
     .limit(20);
@@ -57,7 +58,9 @@ const ApplicationList = async () => {
                     }`}
                   >
                     {application.status === 'active' ? '募集受付中' :
+                     application.status === 'pending' ? '配達中' :
                      application.status === 'reporting' ? '活動報告中' :
+                     application.status === 'completed' ? '活動完了' :
                      '状態不明'}
                   </span>
                 </div>
