@@ -57,7 +57,7 @@ const ApplicationList = async () => {
                       'bg-gray-100 text-gray-800'
                     }`}
                   >
-                    {application.status === 'active' ? '募集受付中' :
+                    {application.status === 'active' ? '応援受付中' :
                      application.status === 'pending' ? '配達中' :
                      application.status === 'reporting' ? '活動報告中' :
                      application.status === 'completed' ? '活動完了' :
