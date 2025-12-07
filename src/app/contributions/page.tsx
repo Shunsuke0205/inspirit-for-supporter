@@ -42,14 +42,10 @@ export default async function ContributionsPage() {
 
   const getStatusText = (status: string) => {
     switch (status) {
-      case "active":
-        return "応援受付中";
-      case "pending":
-        return "配達中";
-      case "reporting":
-        return "活動報告中";
-      case "completed":
-        return "完了";
+      case "purchased":
+        return "受け取り待ち";
+      case "received":
+        return "受領済み";
       default:
         return "状態不明";
     }
