@@ -10,6 +10,7 @@ type Contribution = {
   item_price: number;
   transaction_status: string;
   purchased_at: string;
+  student_user_id: string;
 };
 
 
@@ -71,7 +72,7 @@ export default async function ContributionsPage() {
       ) : (
         <div className="space-y-6">
           {typedContributions.map((c) => (
-            <Link key={c.application_id} href={`/discover/${c.application_id}`} className="block">
+            <div key={c.application_id}>
               <div className="bg-white p-5 rounded-xl shadow-lg border border-gray-200 transition-shadow hover:shadow-xl">
                 <div className="flex justify-between items-start mb-3">
                   <h2 className="text-xl font-semibold text-gray-800">
@@ -83,7 +84,7 @@ export default async function ContributionsPage() {
                 </div>
 
                 <p className="text-sm text-gray-600 mb-3">
-                  購入物品: {c.item_name || "不明"} ({c.item_price.toLocaleString()}円)
+                  購入物品: {c.item_name || "不明"}（{c.item_price.toLocaleString()} 円）
                 </p>
 
                 <div className="text-xs text-gray-500 mt-2 space-y-1">
@@ -92,8 +93,26 @@ export default async function ContributionsPage() {
                     <p className="font-medium text-green-600">受取確認日: {new Date(c.received_at).toLocaleDateString('ja-JP')}</p>
                   )} */}
                 </div>
+                <div className="flex gap-3 pt-3 border-t border-gray-100">
+                  <Link
+                    href={`/discover/${c.application_id}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex-1 text-center py-2 px-3 bg-indigo-50 border border-indigo-300 text-indigo-700 rounded-lg hover:bg-indigo-100 transition text-sm font-medium"
+                  >
+                    投稿詳細を見る
+                  </Link>
+                  <Link
+                    href={`/progress/${c.student_user_id}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex-1 text-center py-2 px-3 bg-sky-50 border border-sky-300 text-sky-700 rounded-lg hover:bg-sky-100 transition text-sm font-medium"
+                  >
+                    コミットカレンダー
+                  </Link>
+                </div>
               </div>
-            </Link>
+            </div>
           ))}
         </div>
       )}
