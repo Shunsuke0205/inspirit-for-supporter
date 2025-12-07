@@ -10,7 +10,6 @@ type Contribution = {
   item_price: number;
   transaction_status: string;
   purchased_at: string;
-  received_at: string | null;
 };
 
 
@@ -26,7 +25,7 @@ export default async function ContributionsPage() {
 
   const { data: contributionsData, error: contributionsError } = await supabase.rpc(
     "get_supporter_contributions",
-    { supporter_id: userId }
+    { supporter_id_in: userId }
   );
 
   if (contributionsError) {
@@ -93,9 +92,9 @@ export default async function ContributionsPage() {
 
                 <div className="text-xs text-gray-500 mt-2 space-y-1">
                   <p>購入確定日: {new Date(c.purchased_at).toLocaleDateString('ja-JP')}</p>
-                  {c.received_at && (
+                  {/* {c.received_at && (
                     <p className="font-medium text-green-600">受取確認日: {new Date(c.received_at).toLocaleDateString('ja-JP')}</p>
-                  )}
+                  )} */}
                 </div>
               </div>
             </Link>
