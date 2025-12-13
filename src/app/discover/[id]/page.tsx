@@ -174,8 +174,21 @@ export default async function Page({
             <p className="whitespace-pre-wrap">{applicationDetails.longTermGoal || "記載なし"}</p>
           </div>
 
+
+          {/* 報告義務に関する情報 */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 bg-gray-50 p-4 rounded-md">
+            <div>
+              <p className="text-sm text-gray-600">報告期間</p>
+              <p className="text-lg font-bold text-gray-800">{applicationDetails.entireReportPeriodDays}日間</p>
+            </div>
+            {/* <div>
+              <p className="text-sm text-gray-600">この支援の報告頻度</p>
+              <p className="text-lg font-bold text-gray-800">{applicationDetails.reportIntervalDays}日に1回以上</p>
+            </div> */}
+          </div>
+
           {/* Amazon 欲しい物リストURL */}
-          {applicationDetails.amazonWishlistUrl && (
+          {applicationDetails.status === "active" && applicationDetails.amazonWishlistUrl && (
             <div>
               <h2 className="text-xl font-bold text-gray-800 mb-2">🎁 Amazon 欲しい物リスト</h2>
               <p className="text-sm text-gray-500 mt-1">（⚠️ Amazonサイトへ移動します）</p>
@@ -192,18 +205,6 @@ export default async function Page({
               </Link>
             </div>
           )}
-
-          {/* 報告義務に関する情報 */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 bg-gray-50 p-4 rounded-md">
-            <div>
-              <p className="text-sm text-gray-600">報告期間</p>
-              <p className="text-lg font-bold text-gray-800">{applicationDetails.entireReportPeriodDays}日間</p>
-            </div>
-            {/* <div>
-              <p className="text-sm text-gray-600">この支援の報告頻度</p>
-              <p className="text-lg font-bold text-gray-800">{applicationDetails.reportIntervalDays}日に1回以上</p>
-            </div> */}
-          </div>
         </div>
 
         {/* 支援ボタンなど (TODO: 後で実装) */}
