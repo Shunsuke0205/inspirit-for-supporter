@@ -1,16 +1,15 @@
 import { createClient } from "@/utils/supabase/server";
 import Link from "next/link";
 import { redirect } from "next/navigation";
-import React from "react";
 
 type Contribution = {
   application_id: string;
+  student_user_id: string;
   application_title: string | null;
   item_name: string | null;
   item_price: number;
   transaction_status: string;
   purchased_at: string;
-  student_user_id: string;
 };
 
 
@@ -37,7 +36,6 @@ export default async function ContributionsPage() {
       </div>
     );
   }
-
 
   const typedContributions: Contribution[] = contributionsData || [];
 
