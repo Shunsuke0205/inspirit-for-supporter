@@ -82,21 +82,21 @@ export default async function Page({
     );
   }
 
-  // 募集ステータスに応じたバッジのクラスを決定するヘルパー関数
+  // Helper function to determine the badge class based on the application status
   const getStatusBadgeClass = (status: string | null) => {
     switch (status) {
       case 'active': return 'bg-green-100 text-green-800';
       case 'pending': return 'bg-purple-100 text-purple-800';
       case 'reporting': return 'bg-blue-100 text-blue-800';
       case 'completed': return 'bg-gray-100 text-gray-800';
-      default: return 'bg-yellow-100 text-yellow-800'; // 未知のステータス
+      default: return 'bg-yellow-100 text-yellow-800'; // unknown
     }
   };
 
   return (
     <div className="min-h-screen bg-gray-100 py-10 px-4">
       <div className="max-w-4xl mx-auto bg-white rounded-lg shadow-xl p-8">
-        {/* 投稿日時など */}
+        {/* Date Information */}
         <div className="text-right text-gray-500 text-sm mb-4">
           <p>投稿日: {new Date(applicationDetails.createdAt).toLocaleDateString('ja-JP')}</p>
           {applicationDetails.lastReportedAt && (
@@ -104,7 +104,7 @@ export default async function Page({
           )}
         </div>
 
-        {/* 投稿タイトルと本人確認済みマーク（後で追加） */}
+        {/* Post Title and Verified Mark (to be added later) */}
         <div className="flex justify-between items-start mb-6">
           <h1 className="text-3xl font-extrabold text-gray-900 leading-tight">
             {applicationDetails.title || "タイトルなし"}
@@ -122,7 +122,7 @@ export default async function Page({
           */}
         </div>
 
-        {/* 募集ステータスバッジ */}
+        {/* Status Badge */}
         <div className="mb-6">
           <span className={`px-4 py-1 rounded-full text-sm font-semibold ${getStatusBadgeClass(applicationDetails.status)}`}>
             {applicationDetails.status === 'active' ? '応援受付中' :
@@ -143,14 +143,14 @@ export default async function Page({
         */}
 
         <div className="space-y-6 text-gray-700 leading-relaxed">
-          {/* 欲しい物品 */}
+          {/* Desired Items */}
           <div>
             <h2 className="text-xl font-bold text-gray-800 mb-2">🎓 欲しい物品</h2>
             <p className="whitespace-pre-wrap">商品名：「{applicationDetails.itemName || "名前なし"}」</p>
             <p className="whitespace-pre-wrap">{applicationDetails.itemDescription || "説明なし"}</p>
           </div>
 
-          {/* 金額情報 */}
+          {/* Price */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 bg-gray-50 p-4 rounded-md">
             <div>
               <p className="text-sm text-gray-600">物品の金額</p>
@@ -162,20 +162,20 @@ export default async function Page({
             </div> */}
           </div>
 
-          {/* 活動への意気込み */}
+          {/* Enthusiasm for the Activity */}
           <div>
             <h2 className="text-xl font-bold text-gray-800 mb-2">🔥 活動への意気込み</h2>
             <p className="whitespace-pre-wrap">{applicationDetails.enthusiasm || "記載なし"}</p>
           </div>
 
-          {/* 長期的な夢や目標 */}
+          {/* Long-term Dreams and Goals */}
           <div>
             <h2 className="text-xl font-bold text-gray-800 mb-2">🚀 長期的な夢や目標</h2>
             <p className="whitespace-pre-wrap">{applicationDetails.longTermGoal || "記載なし"}</p>
           </div>
 
 
-          {/* 報告義務に関する情報 */}
+          {/* Report Period */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 bg-gray-50 p-4 rounded-md">
             <div>
               <p className="text-sm text-gray-600">報告期間</p>
@@ -187,7 +187,7 @@ export default async function Page({
             </div> */}
           </div>
 
-          {/* Amazon 欲しい物リストURL */}
+          {/* Amazon Wishlist URL */}
           {applicationDetails.status === "active" && applicationDetails.amazonWishlistUrl && (
             <div>
               <h2 className="text-xl font-bold text-gray-800 mb-2">🎁 Amazon 欲しい物リスト</h2>
@@ -207,17 +207,7 @@ export default async function Page({
           )}
         </div>
 
-        {/* 支援ボタンなど (TODO: 後で実装) */}
-        {/* <div className="mt-10 pt-6 border-t border-gray-200">
-          <button
-            // onClick={() => alert("支援機能はまだ実装されていません。")}
-            className="w-full py-3 px-6 bg-green-600 text-white font-semibold rounded-lg shadow-md hover:bg-green-700 transition duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 text-lg"
-          >
-            この高校生を支援する
-          </button>
-        </div> */}
-
-        {/* 支援ボタンなど (Step 2-3: PurchaseButton に置き換え) */}
+        {/* Purchase Button */}
         <div className="mt-10 pt-6 border-t border-gray-200">
           <PurchaseButton
             applicationId={applicationDetails.id}
