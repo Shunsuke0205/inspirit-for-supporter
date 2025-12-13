@@ -19,7 +19,9 @@ export default async function Page({
   const { data: studentCommitmentData, error: studentCommitmentError } = await supabase
     .from("student_commitments")
     .select(`committed_date_jst`)
-    .eq('user_id', studentId);
+    .eq('user_id', studentId)
+    .order('committed_date_jst', { ascending: false });
+
   
   if (studentCommitmentError || !studentCommitmentData) {
     console.error("Error fetching student commitment data:", studentCommitmentError);
