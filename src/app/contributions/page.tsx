@@ -55,7 +55,14 @@ export default async function ContributionsPage() {
   return (
     <div className="container mx-auto p-4 max-w-2xl">
       <h1 className="text-3xl font-extrabold text-gray-900 mb-8 text-center">
-        あなたの支援実績 ({typedContributions.length} 件)
+        <span>
+          あなたの支援実績
+        </span>
+        {typedContributions.length >= 10 && (
+          <span>
+            &nbsp;({typedContributions.length} 件)
+          </span>
+        )}
       </h1>
 
       {typedContributions.length === 0 ? (
