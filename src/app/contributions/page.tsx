@@ -81,17 +81,20 @@ export default async function ContributionsPage() {
                   </span>
                 </div>
 
-                <p className="text-sm text-gray-600 mb-3">
-                  購入物品: {c.item_name || "不明"}（{c.item_price.toLocaleString()} 円）
+                <p className="text-sm text-gray-600 mb-1">
+                  {c.item_price.toLocaleString()} 円
+                </p>
+                <p className="text-sm text-gray-600 mb-1">
+                  高校生 ID： {c.student_id.substring(0, 5)}
                 </p>
 
-                <div className="text-xs text-gray-500 mt-2 space-y-1">
-                  <p>購入確定日: {new Date(c.purchased_at).toLocaleDateString('ja-JP')}</p>
+                <div className="text-sm text-gray-600 mb-1">
+                  <p>購入確定日： {new Date(c.purchased_at).toLocaleDateString('ja-JP')}</p>
                   {/* {c.received_at && (
                     <p className="font-medium text-green-600">受取確認日: {new Date(c.received_at).toLocaleDateString('ja-JP')}</p>
                   )} */}
                 </div>
-                <div className="flex gap-3 pt-3 border-t border-gray-100">
+                <div className="flex gap-3 mt-2 pt-2 border-t border-gray-100">
                   <Link
                     href={`/discover/${c.application_id}`}
                     target="_blank"
