@@ -4,7 +4,7 @@ import { redirect } from "next/navigation";
 
 type Contribution = {
   application_id: string;
-  student_user_id: string;
+  student_id: string;
   application_title: string | null;
   item_name: string | null;
   item_price: number;
@@ -101,7 +101,7 @@ export default async function ContributionsPage() {
                     投稿詳細を見る
                   </Link>
                   <Link
-                    href={`/progress/${c.student_user_id}`}
+                    href={`/progress/${c.student_id}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex-1 text-center py-2 px-3 bg-sky-50 border border-sky-300 text-sky-700 rounded-lg hover:bg-sky-100 transition text-sm font-medium"
