@@ -21,8 +21,8 @@ const PurchaseButton: React.FC<PurchaseButtonProps> = ({
     return (
       <div className="text-center text-lg font-semibold p-3 rounded-lg border">
         {currentStatus === "pending"
-            ? <p className="text-purple-600 bg-purple-50">🚀 すでに購入者が確定しました。高校生の受取確認待ちです。</p> 
-            : <p className="text-gray-600 bg-gray-50">✅ この投稿は現在、応援受付中ではありません。</p>
+            ? <p className="text-purple-600 bg-purple-50">📦💨 すでに購入されました。高校生の受取確認待ちです。</p> 
+            : <p className="text-gray-600 bg-gray-50">この商品はすでに購入されました。</p>
         }
       </div>
     );
@@ -49,7 +49,7 @@ const PurchaseButton: React.FC<PurchaseButtonProps> = ({
   return (
     <div>
       <p className="text-sm text-gray-700 mb-3 text-center">
-        ⚠️ Amazonで購入手続きを完了してから、この確定ボタンを押してください。
+        ⚠️ Amazon で購入手続きを完了してから、この確定ボタンを押してください。
       </p>
       <button
         onClick={handleConfirmPurchase}
@@ -58,7 +58,7 @@ const PurchaseButton: React.FC<PurchaseButtonProps> = ({
           isSubmitting ? 'bg-green-400 cursor-not-allowed' : 'bg-green-600 hover:bg-green-700'
         }`}
       >
-        {isSubmitting ? '処理を確定中...' : 'Amazonでの購入を確定した'}
+        {isSubmitting ? "処理を確定中..." : "Amazon 公式サイトで決済を完了しました"}
       </button>
 
       {feedback && (
