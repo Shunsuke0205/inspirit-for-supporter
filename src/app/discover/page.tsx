@@ -37,7 +37,12 @@ const ApplicationList = async () => {
       <h2 className="text-2xl font-bold text-gray-800 mb-6 text-center">高校生の投稿</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {applications.map((application) => (
-          <Link href={`/discover/${application.id}`} key={application.id} className="block">
+          <Link
+            href={`/discover/${application.id}`}
+            key={application.id}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block">
             <div className="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:scale-103 hover:shadow-xl duration-200 ease-in-out border border-gray-200">
               <div className="p-5">
                 <h3 className="text-xl font-semibold text-gray-800 mb-2 truncate">
