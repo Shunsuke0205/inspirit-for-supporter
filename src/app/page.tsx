@@ -28,7 +28,7 @@ export default function Home() {
       </div>
 
       <div className="mt-12 text-center text-gray-500 text-sm">
-        <p>&copy; {new Date().getFullYear()} 一般社団法人インスピリット. All rights reserved.</p>
+        <p>&copy; {new Date().getFullYear()} Shunsuke HIRATA, All rights reserved.</p>
       </div>
     </div>
   );
