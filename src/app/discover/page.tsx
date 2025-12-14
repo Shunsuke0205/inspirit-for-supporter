@@ -42,7 +42,8 @@ const ApplicationList = async () => {
             key={application.id}
             target="_blank"
             rel="noopener noreferrer"
-            className="block">
+            className="block"
+          >
             <div className="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:scale-103 hover:shadow-xl duration-200 ease-in-out border border-gray-200">
               <div className="p-5">
                 <h3 className="text-xl font-semibold text-gray-800 mb-2 truncate">
