@@ -66,9 +66,9 @@ export default async function Page({
         </div>
       )}
 
-      <div className="mt-8 pt-4 border-t text-center text-xs text-gray-400">
+      {/* <div className="mt-8 pt-4 border-t text-center text-xs text-gray-400">
         学生ID: {studentId}
-      </div>
+      </div> */}
     </div>
   );
 }
