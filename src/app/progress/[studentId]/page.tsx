@@ -41,7 +41,7 @@ export default async function Page({
         高校生 {displayStudentId} さんの記録
       </h1>
       <p className="text-sm text-gray-500 text-center">
-        コミットメント記録: {commitments.length} 件
+        {commitments.length} 件のコミットメント記録
       </p>
 
       {commitments.length === 0 ? (
