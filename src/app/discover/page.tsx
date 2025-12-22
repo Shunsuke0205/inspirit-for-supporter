@@ -55,7 +55,7 @@ const ApplicationList = async () => {
                 </p>
                 <div className="flex justify-between items-center mb-4">
                   <span className="text-lg font-bold text-indigo-600">
-                    必要な金額: {application.requested_amount.toLocaleString()} 円
+                    価格 {application.requested_amount.toLocaleString()} 円
                   </span>
                   <span
                     className={`px-3 py-1 rounded-full text-xs font-medium ${
