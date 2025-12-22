@@ -109,17 +109,12 @@ export default async function Page({
           <h1 className="text-3xl font-extrabold text-gray-900 leading-tight">
             {applicationDetails.title || "タイトルなし"}
           </h1>
-          {/* 本人確認済みマークは profiles_students_public テーブル作成後に追加 */}
-          {/*
-          {application.isVerified && (
-            <span className="ml-4 inline-flex items-center px-3 py-0.5 rounded-full text-sm font-medium bg-blue-100 text-blue-800">
-              <svg className="-ml-1 mr-1.5 h-3 w-3 text-blue-500" fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-              </svg>
-              本人確認済み
-            </span>
-          )}
-          */}
+          <span className="ml-4 inline-flex items-center px-3 py-0.5 rounded-full text-sm font-medium bg-blue-100 text-blue-800">
+            <svg className="-ml-1 mr-1.5 h-3 w-3 text-blue-500" fill="currentColor" viewBox="0 0 20 20">
+              <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+            </svg>
+            本人確認済
+          </span>
         </div>
 
         {/* Status Badge */}
