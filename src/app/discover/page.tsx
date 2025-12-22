@@ -1,6 +1,6 @@
 import { createClient } from "@/utils/supabase/server";
 import Link from "next/link";
-import { Search, Filter } from 'lucide-react';
+import { Search, Filter, CheckCircle2 } from 'lucide-react';
 
 async function FetchData() {
   const supabase = await createClient();
@@ -47,9 +47,18 @@ const ApplicationList = async () => {
           >
             <div className="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:scale-103 hover:shadow-xl duration-200 ease-in-out border border-gray-200">
               <div className="p-5">
-                <h3 className="text-xl font-semibold text-gray-800 mb-2 truncate">
-                  {application.title || "タイトルなし"}
-                </h3>
+                <div className="flex justify-between items-start gap-4 mb-4">
+                  <h3 className="text-xl font-bold text-gray-800 leading-tight group-hover:text-indigo-600 transition-colors line-clamp-2">
+                    {application.title || "タイトルなし"}
+                  </h3>
+
+                  {/* authentication badge */}
+                  <div className="flex items-center gap-1 px-2 py-1 bg-blue-50 text-blue-700 rounded-lg border border-blue-100 shrink-0 shadow-sm">
+                    <CheckCircle2 className="w-3.5 h-3.5 fill-blue-600 text-white" />
+                    <span className="text-[10px] font-black tracking-tighter whitespace-nowrap">本人確認済</span>
+                  </div>
+                </div>
+
                 <p className="text-gray-600 text-sm mb-3 line-clamp-3">
                   {application.item_description || "説明なし"}
                 </p>
