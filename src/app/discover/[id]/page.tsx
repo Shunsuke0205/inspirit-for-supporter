@@ -98,9 +98,9 @@ export default async function Page({
       <div className="max-w-4xl mx-auto bg-white rounded-lg shadow-xl p-8">
         {/* Date Information */}
         <div className="text-right text-gray-500 text-sm mb-4">
-          <p>投稿日: {new Date(applicationDetails.createdAt).toLocaleDateString('ja-JP')}</p>
+          <p>投稿日：{new Date(applicationDetails.createdAt).toLocaleDateString('ja-JP')}</p>
           {applicationDetails.lastReportedAt && (
-            <p>最終報告日: {new Date(applicationDetails.lastReportedAt).toLocaleDateString('ja-JP')}</p>
+            <p>最終報告日：{new Date(applicationDetails.lastReportedAt).toLocaleDateString('ja-JP')}</p>
           )}
         </div>
 
@@ -174,7 +174,7 @@ export default async function Page({
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 bg-gray-50 p-4 rounded-md">
             <div>
               <p className="text-sm text-gray-600">報告期間</p>
-              <p className="text-lg font-bold text-gray-800">{applicationDetails.entireReportPeriodDays}日間</p>
+              <p className="text-lg font-bold text-gray-800">{applicationDetails.entireReportPeriodDays} 日間</p>
             </div>
             {/* <div>
               <p className="text-sm text-gray-600">この支援の報告頻度</p>
