@@ -1,5 +1,6 @@
 import { createClient } from "@/utils/supabase/server";
 import Link from "next/link";
+import { Search, Filter } from 'lucide-react';
 
 async function FetchData() {
   const supabase = await createClient();
@@ -99,6 +100,25 @@ const Page = () => {
           各商品は、Amazon 欲しいものリスト機能を使って簡単に代理購入できます。<br />
           彼ら彼女らの生活を、未来への一歩を応援しませんか。
         </p>
+
+        {/* 検索・フィルタリング */}
+        <div className="container mx-auto max-w-5xl mt-10">
+          <div className="bg-white rounded-3xl shadow-2xl p-6 flex flex-col md:flex-row gap-4 items-center border border-gray-100">
+            <div className="relative flex-grow w-full">
+              <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-6 h-6" />
+              <input 
+                type="text" 
+                placeholder="（検索機能は 1 年後に実装予定です。）" 
+                className="w-full pl-14 pr-6 py-4 bg-gray-50 border-none rounded-2xl focus:ring-2 focus:ring-indigo-500 text-gray-700 text-sm md:text-lg transition-all"
+              />
+            </div>
+            <button className="flex items-center gap-2 px-8 py-4 bg-gray-100 text-gray-600 rounded-2xl hover:bg-gray-200 transition font-bold w-full md:w-60 justify-center">
+              <Filter className="w-5 h-5" />
+              絞り込み
+            </button>
+          </div>
+        </div>
+
         <ApplicationList />
       </div>
     </div>
