@@ -5,20 +5,39 @@ import { redirect } from 'next/navigation'
 
 import { createClient } from '@/utils/supabase/server'
 
+
+function redirectWithError(message: string): never {
+  console.error("Authentication Error:", message);
+  redirect("/error");
+}
+
 export async function login(formData: FormData) {
   const supabase = await createClient()
 
-  // type-casting here for convenience
-  // in practice, you should validate your inputs
-  const data = {
-    email: formData.get('email') as string,
-    password: formData.get('password') as string,
+  const emailValue = formData.get("email");
+  const passwordValue = formData.get("password");
+
+  if (!emailValue || !passwordValue) {
+    redirectWithError("Email and password are required.");
   }
 
-  const { error } = await supabase.auth.signInWithPassword(data)
+  const password = String(passwordValue).trim();
+  if (password.length < 8) {
+    redirectWithError("Password must be at least 8 characters long.");
+  }
+  const email = String(emailValue).trim();
 
-  if (error) {
-    redirect('/error')
+  const { data: authData, error: authError } = await supabase.auth.signInWithPassword({
+    email,
+    password
+  });
+
+
+  if (authError) {
+    redirectWithError("Authentication failed: " + authError.message);
+  }
+  if (!authData.user) {
+    redirectWithError("Authentication failed. No user data returned.");
   }
 
   revalidatePath('/', 'layout')
