@@ -47,15 +47,22 @@ export async function login(formData: FormData) {
 export async function signup(formData: FormData) {
   const supabase = await createClient()
 
-  // type-casting here for convenience
-  // in practice, you should validate your inputs
-  const data = {
-    email: formData.get('email') as string,
-    password: formData.get('password') as string,
+  const emailValue = formData.get("email");
+  const passwordValue = formData.get("password");
+
+  if (!emailValue || !passwordValue) {
+    redirectWithError("Email and password are required.");
   }
 
+  const password = String(passwordValue).trim();
+  if (password.length < 8) {
+    redirectWithError("Password must be at least 8 characters long.");
+  }
+  const email = String(emailValue).trim();
+
   const { error } = await supabase.auth.signUp({
-    ...data,
+    email,
+    password,
     options: {
       emailRedirectTo: 'https://inspirit-for-supporter.vercel.app',
       data: { role: 'supporter'}
@@ -63,7 +70,7 @@ export async function signup(formData: FormData) {
   })
 
   if (error) {
-    redirect('/error')
+    redirectWithError("Signup failed: " + error.message);
   }
 
   revalidatePath('/', 'layout')
@@ -76,11 +83,10 @@ export async function logout() {
   const { error } = await supabase.auth.signOut();
 
   if (error) {
-    redirect('/error');
+    redirectWithError("Logout failed: " + error.message);
   }
-  console.log("Successfully logged out");
 
-  revalidatePath('/posts', 'layout');
-  redirect('/posts');
+  revalidatePath('/login', 'layout');
+  redirect('/login');
 }
 
