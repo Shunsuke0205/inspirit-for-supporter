@@ -3,13 +3,15 @@ import Link from "next/link";
 export default function Home() {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100 p-4">
-      <h1 className="text-xl md:text-3xl lg:text-5xl font-extrabold text-gray-900 mb-6 text-left leading-tight">
+      <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900 mb-6 text-left leading-tight">
         高校生の夢や活動を応援し、
         <br />
         未来を紡ぐプラットフォーム
       </h1>
-      <p className="text-lg text-gray-700 mb-10 text-left max-w-2xl">
-        学ぶ意欲のある日本の高校生と、彼らの夢や活動を応援したい市民をつなぎます。
+      <p className="text-base md:text-lg text-gray-700 mb-10 text-left max-w-sm">
+        高校生の欲しい物を、商品の代金と送料のみで届けることができます。
+        <br />
+        アプリの利用手数料はかかりません。
         <br />
         小さな一歩が、大きな未来を創り出します。
       </p>
