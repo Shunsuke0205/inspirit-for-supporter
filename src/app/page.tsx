@@ -20,9 +20,9 @@ export default function Home() {
             支援する高校生を見つける
           </button>
         </Link>
-        <Link href="/login" className="block">
+        <Link href="/contributions" className="block">
           <button className="w-full sm:w-auto px-8 py-3 bg-white text-indigo-600 font-semibold rounded-lg shadow-md border border-indigo-600 hover:bg-indigo-50 transition duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 text-lg">
-            ログイン / 新規登録
+            応援した高校生のコミットメントを見る
           </button>
         </Link>
       </div>
