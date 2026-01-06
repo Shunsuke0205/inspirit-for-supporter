@@ -35,6 +35,8 @@ export default async function Page({
 
   const displayStudentId = studentId.substring(0, 5);
 
+  const days = ['日', '月', '火', '水', '木', '金', '土'];
+
   return (
     <div className="container mx-auto p-6 max-w-lg">
       <h1 className="text-3xl font-extrabold text-gray-900 mb-2 text-center">
@@ -50,19 +52,24 @@ export default async function Page({
         </div>
       ) : (
         <div className="mt-5 space-y-3">
-          {commitments.map((commit, index) => (
-            <div
-              key={index}
-              className="p-4 bg-white rounded-lg shadow-md flex justify-between items-center border-l-4 border-indigo-500"
-            >
-              <span className="text-lg font-medium text-gray-700">
-                {commit.committed_date_jst}
-              </span>
-              <span className="px-3 py-1 bg-indigo-50 text-indigo-700 rounded-full text-bg font-semibold">
-                報告日
-              </span>
-            </div>
-          ))}
+          {commitments.map((commit, index) => {
+            const date = new Date(commit.committed_date_jst);
+            const dayOfWeek = days[date.getUTCDay()];
+
+            return (
+              <div
+                key={index}
+                className="p-4 bg-white rounded-lg shadow-md border-l-4 border-indigo-500"
+              >
+                <p className="text-lg font-medium text-gray-700">
+                  {commit.committed_date_jst + ' '}
+                  <span>
+                    ({dayOfWeek})
+                  </span>
+                </p>
+              </div>
+            );
+          })}
         </div>
       )}
 
