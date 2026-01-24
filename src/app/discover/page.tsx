@@ -59,11 +59,11 @@ const ApplicationList = async () => {
                   </div>
                 </div>
 
-                <p className="text-gray-600 text-sm mb-3 line-clamp-3">
+                <p className="text-gray-600 mb-3 line-clamp-3">
                   {application.item_description || "説明なし"}
                 </p>
                 <div className="flex justify-between items-center mb-4">
-                  <span className="text-lg font-bold text-indigo-600">
+                  <span className="text-sm text-indigo-600">
                     価格 {application.requested_amount.toLocaleString()} 円
                   </span>
                   <span
