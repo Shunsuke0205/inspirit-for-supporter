@@ -186,7 +186,7 @@ export default async function Page({
           {applicationDetails.status === "active" && applicationDetails.amazonWishlistUrl && (
             <div>
               <h2 className="text-xl font-bold text-gray-800 mb-2">🎁 Amazon 欲しい物リスト</h2>
-              <p className="text-sm text-gray-500 mt-1">（⚠️ Amazonサイトへ移動します）</p>
+              <p className="text-sm text-gray-500 mt-1">（⚠️ 外部サイトとなる「Amazon 公式の欲しいものリストのページ」へ移動します）</p>
               <Link
                 href={applicationDetails.amazonWishlistUrl}
                 target="_blank"
