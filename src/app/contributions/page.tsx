@@ -44,7 +44,7 @@ export default async function ContributionsPage() {
       case "purchased":
         return "受け取り待ち";
       case "received":
-        return "受領済み";
+        return "商品受け取り済み";
       default:
         return "状態不明";
     }
