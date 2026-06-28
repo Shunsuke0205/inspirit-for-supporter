@@ -20,7 +20,7 @@ const Header = async () => {
           height={50}
           className=""
         />
-        <h1 className="ml-4 text-2xl">高校生の代理購入</h1>
+        <h1 className="ml-4 text-2xl">おんがえし</h1>
       </Link>
       {isLoggedIn &&
         <div>
