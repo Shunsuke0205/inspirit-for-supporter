@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100 p-4">
+    <div className="pb-40 flex flex-col items-center justify-center bg-gray-100 p-4">
       <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900 mb-6 text-left leading-tight">
         高校生の夢や活動を応援し、
         <br />
